@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# A script for enabling your beagle bone to share your computers
+# network adapter connection.
+
+# Assumes you've already enabled network connection sharing as 
+# described in the README in the util directory
+
+sudo route add default gw 192.168.7.1
+sudo echo "nameserver 8.8.8.8" >> /etc/resolv/conf
+echo "Network settings changed"
