@@ -1,2 +1,5 @@
 # vscode
 .vscode/*
+
+/fall2021/basic_lane_detect/frames/*
+/fall2021/basic_lane_detect/detected/*
