@@ -4,8 +4,6 @@ import edge_detection as edge # Handles the detection of lane lines
 import matplotlib.pyplot as plt # Used for plotting and error checking
 import math
 
-
-from tqdm import tqdm
 import os
 import re
 
