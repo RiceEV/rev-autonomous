@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+from detect_edges import edge_detect, crop_roi
 
 # define a video capture object
 vid = cv2.VideoCapture(0)
@@ -20,12 +21,18 @@ while (True):
     # Capture the video frame
     # by frame
     ret, frame = vid.read()
+    cv2.imshow('image', frame)
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     # Display the resulting frame
-    cv2.imshow('frame', detect_blue(frame))
+    blue_here = detect_blue(frame)
+    cv2.imshow('frame', blue_here)
 
+    edges = edge_detect(blue_here)
+    cv2.imshow('edge detect', edges)
 
+    cropped = crop_roi(edges)
+    cv2.imshow('cropped', cropped)
 
     # the 'q' button is set as the
     # quitting button you may use any
