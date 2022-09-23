@@ -4,7 +4,6 @@ import math
 import sys
 import time
 import matplotlib.pyplot as plt
-import Adafruit_BBIO.PWM as PWM
 '''
 YoungBoys
 Made by Christian, Son, Mahmoud, and Robbie
@@ -223,12 +222,6 @@ def cam_test(res):
     cv2.destroyAllWindows()
     
 def main(res=100, kpr=12, kdr=8, driving_speed = 7.92 ):
-    steering_port = "P9_14"
-    driving_port = "P8_13"
-    
-    # Set up PWM
-    PWM.start(steering_port, 7.5, 50)
-    PWM.start(driving_port, 7.5, 50)
 
     #Capturing
     video = cv2.VideoCapture(0)
@@ -252,7 +245,6 @@ def main(res=100, kpr=12, kdr=8, driving_speed = 7.92 ):
     speed = np.array([])
     
     time.sleep(3) # calibration for esc
-    PWM.set_duty_cycle(driving_port, driving_speed)
     
     #Red detection
     red_detected = False
@@ -269,7 +261,6 @@ def main(res=100, kpr=12, kdr=8, driving_speed = 7.92 ):
                   break
                 a = j + 100
                 red_detected = True
-                PWM.set_duty_cycle(driving_port,7.5)
                 time.sleep(2)
         
         #Edge Detection
@@ -291,7 +282,6 @@ def main(res=100, kpr=12, kdr=8, driving_speed = 7.92 ):
             proportional_r = kpr * deviation
             PD_r = derivative_r + proportional_r
             rot = rotbase - PD_r/90
-            PWM.set_duty_cycle(steering_port, 7.5) #going straight
         else:
             #Find new derivative and proportional gain
             derivative_r = kdr * (deviation - lastError) / dt

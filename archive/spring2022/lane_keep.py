@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import time
 
 
-vid = cv2.VideoCapture('C:\\Users\\Taeho Choe\\Desktop\\REV_AUTOMATION\\CODE\\lanedetection video\\Highway - 10364.mp4')
+vid = cv2.VideoCapture('Highway - 10364 (1).mp4')
 #vid = cv2.VideoCapture("C:\\Users\\Taeho Choe\\Desktop\\Self_Projects\\AI Driving\\videos\\rice_campus_drive.mp4")
 
 class Lane:
