@@ -11,7 +11,7 @@ The output dims are <height> x <width>
 '''
 def detect_blue(frame):
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    lower_red = np.array([0, 120, 0], dtype="uint8")
+    lower_red = np.array([0, 200, 0], dtype="uint8")
     upper_red = np.array([20, 255, 255], dtype="uint8")
     mask = cv2.inRange(hsv, lower_red, upper_red)
     return mask
@@ -57,7 +57,7 @@ def detect_line_segments(cropped_edges):
     #detects line segment via HoughLines
     rho = 1
     theta = np.pi / 180
-    min_threshold = 10
+    min_threshold = 15
 
     line_segments = cv2.HoughLinesP(cropped_edges, rho, theta, min_threshold,
                                     np.array([]), minLineLength=5, maxLineGap=150)
@@ -101,6 +101,8 @@ while (True):
     cropped = crop_roi(edges)
     cv2.imshow('cropped', cropped)
 
+    lines = display_lines(frame, detect_line_segments(cropped), line_color=(0, 255, 0), line_width=6)
+    cv2.imshow("lines", lines)
     # the 'q' button is set as the
     # quitting button you may use any
     # desired button of your choice
