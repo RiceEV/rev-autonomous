@@ -11,8 +11,8 @@ The output dims are <height> x <width>
 '''
 def detect_blue(frame):
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    lower_red = np.array([90, 120, 0], dtype="uint8")
-    upper_red = np.array([150, 255, 255], dtype="uint8")
+    lower_red = np.array([0, 120, 0], dtype="uint8")
+    upper_red = np.array([20, 255, 255], dtype="uint8")
     mask = cv2.inRange(hsv, lower_red, upper_red)
     return mask
 
@@ -37,8 +37,8 @@ def crop_roi(edges):
     # only focus lower half of the screen
     polygon = np.array([[
         (0, height),
-        (0,  height/2),
-        (width , height/2),
+        (width / 6,  height/2),
+        (width * 5/ 6 , height/2),
         (width , height),
     ]], np.int32)
 
