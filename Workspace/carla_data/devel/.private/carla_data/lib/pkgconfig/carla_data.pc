@@ -1,0 +1,8 @@
+prefix=/home/rev/Documents/carla_data/devel/.private/carla_data
+
+Name: carla_data
+Description: Description of carla_data
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
