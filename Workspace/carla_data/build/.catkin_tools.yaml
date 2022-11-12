@@ -1,6 +1,0 @@
-devel_space: /home/rev/Documents/carla_data/devel
-install: false
-install_space: /home/rev/Documents/carla_data/install
-profile: default
-source_space: /home/rev/Documents/carla_data/src
-workspace: /home/rev/Documents/carla_data
